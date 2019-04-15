@@ -1,0 +1,42 @@
+body {
+	
+	font-family: 'Crimson Text', serif;
+}
+
+
+.center {
+  margin: auto;
+  width: 85%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+  margin-top: 6%;
+  
+  
+}
+
+#nappi>a {
+	width: 30%;
+}
+
+#lisays{
+	margin: auto;
+	width: 50%;
+	margin-top: 6%;
+	border: 3px solid #73AD21;
+	padding: 10px;
+}
+
+#muokkaus{
+	margin: auto;
+	width: 50%;
+	margin-top: 3%;
+	border: 3px solid #73AD21;
+	padding: 10px;
+}
+
+#logging{
+	margin: auto;
+	max-width: 12%;
+	margin-top: 10%;
+	
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="utf-8" />
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+		integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+	<title>Meikkipussi</title>
+</head>
+<body>
+	<div class="center">
+		<div class="col-md-4">
+			<h2>Meikkipussini</h2>
+		</div>
+	<div class="col-auto mr-auto">
+		<h3 th:inline="text"><small class="text-muted">Tervetuloa, [[${#httpServletRequest.remoteUser}]]</small></h3>
+	</div>
+<div class="col-auto" style="padding-bottom: 15px">
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Kirjaudu ulos" class="btn btn-danger"/>
+	</form>
+</div>
+<table class="table table-striped">
+<tr>
+	<th>Nimi</th>
+	<th>Valmistaja</th>
+	<th>Koko</th>
+	<th>Hinta</th>
+	<th>Kategoria</th>
+	<th></th>
+</tr>
+	<tr th:each = "meikki : ${meikit}">
+	<td th:text="${meikki.nimi}"></td>
+	<td th:text="${meikki.valmistaja}"></td>
+	<td th:text="${meikki.koko}"></td>
+	<td th:text="${meikki.hinta}"></td>
+	<td th:text="${meikki.category.name}"></td>
+	<td id="nappi">
+		<a th:href="@{/delete/{id}(id=${meikki.id})}" class="btn btn-danger">Poista</a>
+		<a th:href="@{/edit/{id}(id=${meikki.id})}" class="btn btn-warning">Muokkaa</a>
+	</td>
+		
+	</tr>
+</table>
+	<div class="col-md-4">
+	<a href="/add" class="btn btn-success">Lisää tuote</a>
+	</div>
+</div>
+</body>
+</html>

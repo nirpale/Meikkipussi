@@ -1,0 +1,41 @@
+<!DOCTYPEhtml>
+<htmlxmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" 
+	integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+	
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<title>Meikkipussi</title>
+</head>
+<body>
+<div id="lisays">
+	<form th:object="${meikki}" th:action="@{save}" action="#" method="post">
+	
+	<label for="nimi">Nimi</label>
+		<input type="text" id="nimi" th:field="*{nimi}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+		
+	<label for="valmistaja">Valmistaja</label>
+		<input type="text" id="valmistaja" th:field="*{valmistaja}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+		
+	<label for="koko">Koko</label>
+		<input type="text" id="koko" th:field="*{koko}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+		
+	<label for="Hinta">Hinta</label>
+		<input type="text" id="hinta" th:field="*{hinta}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+								
+	<label for="catlist">Kategoria</label>
+		<select id="catlist" th:field="*{category}" class="form-control">
+       		<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    	</select>
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+		<input type="submit" class="btn btn-success" value="Save"></input>
+	</form>
+</div>
+</body>
+</html>
